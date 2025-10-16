@@ -1,5 +1,7 @@
 # BABISHA - Fabric E-commerce Website
 
+Babisha – Where Every Fabric Tells a Story. Discover premium-quality fabrics that blend tradition, comfort, and contemporary style.
+
 A modern, responsive e-commerce website for fabric sales with WhatsApp integration.
 
 ## Features
@@ -57,8 +59,8 @@ BABISHA/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/babisha.git
-   cd babisha
+   git clone https://github.com/mahimamj/Babisha.git
+   cd Babisha
    ```
 
 2. **Start a local server**:
@@ -91,7 +93,7 @@ The Order Now buttons automatically generate detailed WhatsApp messages includin
 ## Contact Information
 
 - **WhatsApp**: +91 9624113555
-- **Website**: [Your Website URL]
+- **Website**: https://mahimamj.github.io/Babisha
 
 ## License
 
