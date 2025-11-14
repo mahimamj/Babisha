@@ -2773,13 +2773,26 @@ function initializeProductsPage() {
     initializePagination();
     initializeMobileFilterSidebar();
     
-    // Handle URL parameters first
-    handleURLParameters();
+    // Handle URL parameters first (this will call displayFabrics if needed)
+    const hasURLParams = handleURLParameters();
     
-    // Then display fabrics (handleURLParameters will call displayFabrics, but this ensures it's called)
-    console.log('About to display fabrics...');
-    if (filteredFabrics.length > 0) {
-        displayFabrics();
+    // Only display fabrics if handleURLParameters didn't already do it
+    if (!hasURLParams) {
+        console.log('No URL parameters, displaying all fabrics...');
+        console.log('filteredFabrics.length:', filteredFabrics.length);
+        console.log('fabricData.length:', fabricData.length);
+        
+        // Ensure we have fabrics to display
+        if (filteredFabrics.length === 0 && fabricData.length > 0) {
+            console.log('filteredFabrics is empty, resetting from fabricData');
+            filteredFabrics = [...fabricData];
+        }
+        
+        if (filteredFabrics.length > 0) {
+            displayFabrics();
+        } else {
+            console.error('No fabrics available to display!');
+        }
     }
 }
 
@@ -2882,9 +2895,28 @@ function displayFabrics() {
     const endIndex = startIndex + itemsPerPage;
     const currentPageFabrics = filteredFabrics.slice(startIndex, endIndex);
     
+    console.log('Total fabrics:', filteredFabrics.length);
+    console.log('Current page:', currentPageNumber);
+    console.log('Items per page:', itemsPerPage);
+    console.log('Start index:', startIndex);
+    console.log('End index:', endIndex);
+    console.log('Fabrics for current page:', currentPageFabrics.length);
+    
+    if (currentPageFabrics.length === 0) {
+        console.warn('No fabrics to display for current page!');
+        fabricGrid.innerHTML = '<div class="col-12"><p class="text-center text-muted">No products found for this page.</p></div>';
+        updateResultsCount();
+        updatePagination();
+        return;
+    }
+    
     currentPageFabrics.forEach(fabric => {
         const fabricCard = createFabricCard(fabric);
-        fabricGrid.appendChild(fabricCard);
+        if (fabricCard) {
+            fabricGrid.appendChild(fabricCard);
+        } else {
+            console.error('Failed to create fabric card for:', fabric);
+        }
     });
     
     console.log('Fabric cards created, updating results...');
@@ -3259,11 +3291,12 @@ function handleURLParameters() {
     const occasion = urlParams.get('occasion');
     const fabric = urlParams.get('fabric');
     
-    // If no category parameter, show all products
+    // If no category parameter, don't display yet (let initializeProductsPage handle it)
     if (!category && !collection && !occasion && !fabric) {
+        console.log('No URL parameters found');
         filteredFabrics = [...fabricData];
-        displayFabrics();
-        return;
+        console.log('filteredFabrics set to:', filteredFabrics.length);
+        return false; // Return false to indicate no URL params, so caller can handle display
     }
     
     if (category) {
@@ -3299,12 +3332,16 @@ function handleURLParameters() {
             return fabric.category === category;
         });
         displayFabrics();
+        return true; // Return true to indicate we handled URL params and displayed
     } else if (collection || occasion || fabric) {
         // For collection, occasion, or fabric parameters, show all products for now
         // (since products don't have these properties yet)
         filteredFabrics = [...fabricData];
         displayFabrics();
+        return true; // Return true to indicate we handled URL params and displayed
     }
+    
+    return false;
 }
 
 // Interactive Features
