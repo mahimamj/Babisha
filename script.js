@@ -2769,6 +2769,7 @@ function initializeProductsPage() {
     initializeSearch();
     initializeSorting();
     initializePagination();
+    initializeMobileFilterSidebar();
     
     // Handle URL parameters first
     handleURLParameters();
@@ -2778,6 +2779,41 @@ function initializeProductsPage() {
     if (filteredFabrics.length > 0) {
         displayFabrics();
     }
+}
+
+// Initialize Mobile Filter Sidebar Toggle
+function initializeMobileFilterSidebar() {
+    const filterSidebar = document.querySelector('.filter-sidebar');
+    if (!filterSidebar) return;
+    
+    const filterTitle = filterSidebar.querySelector('h5');
+    if (!filterTitle) return;
+    
+    // Check if we're on mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Add click handler to toggle sidebar
+        filterTitle.style.cursor = 'pointer';
+        filterTitle.addEventListener('click', function() {
+            filterSidebar.classList.toggle('collapsed');
+        });
+        
+        // Initially collapse on mobile
+        filterSidebar.classList.add('collapsed');
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        const isMobileNow = window.innerWidth <= 768;
+        if (isMobileNow && !filterTitle.hasAttribute('data-mobile-initialized')) {
+            filterTitle.style.cursor = 'pointer';
+            filterTitle.addEventListener('click', function() {
+                filterSidebar.classList.toggle('collapsed');
+            });
+            filterTitle.setAttribute('data-mobile-initialized', 'true');
+        }
+    });
 }
 
 // Initialize Home Page
@@ -3509,6 +3545,7 @@ window.openWishlist = openWishlist;
 window.viewFabricDetails = viewFabricDetails;
 window.toggleFilterSection = toggleFilterSection;
 window.clearAllFilters = clearAllFilters;
+window.initializeMobileFilterSidebar = initializeMobileFilterSidebar;
 window.openLoginModal = openLoginModal;
 
 window.openRegisterModal = openRegisterModal;
