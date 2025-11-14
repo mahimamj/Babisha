@@ -5,6 +5,8 @@ console.log('BABISHA script loaded successfully!');
 let currentUser = null;
 let fabricData = [];
 let filteredFabrics = [];
+let currentPageNumber = 1;
+let itemsPerPage = 6;
 
 // Sample Fabric Data - All Collections
 const sampleFabrics = [
@@ -2861,10 +2863,26 @@ function displayFabrics() {
     if (filteredFabrics.length === 0) {
         fabricGrid.innerHTML = '<div class="col-12"><p class="text-center text-muted">No products found matching your criteria.</p></div>';
         updateResultsCount();
+        currentPageNumber = 1;
+        updatePagination();
         return;
     }
     
-    filteredFabrics.forEach(fabric => {
+    // Calculate pagination
+    const totalPages = Math.ceil(filteredFabrics.length / itemsPerPage);
+    if (currentPageNumber > totalPages) {
+        currentPageNumber = totalPages;
+    }
+    if (currentPageNumber < 1) {
+        currentPageNumber = 1;
+    }
+    
+    // Get items for current page
+    const startIndex = (currentPageNumber - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentPageFabrics = filteredFabrics.slice(startIndex, endIndex);
+    
+    currentPageFabrics.forEach(fabric => {
         const fabricCard = createFabricCard(fabric);
         fabricGrid.appendChild(fabricCard);
     });
@@ -2984,6 +3002,8 @@ function applyFilters() {
         return categoryMatch && priceMatch;
     });
     
+    // Reset to first page when filters change
+    currentPageNumber = 1;
     displayFabrics();
 }
 
@@ -3062,6 +3082,7 @@ function handleSearch() {
         );
     }
     
+    currentPageNumber = 1;
     displayFabrics();
 }
 
@@ -3098,6 +3119,7 @@ function applySorting() {
             break;
     }
     
+    currentPageNumber = 1;
     displayFabrics();
 }
 
@@ -3112,7 +3134,6 @@ function updatePagination() {
     const pagination = document.getElementById('pagination');
     if (!pagination) return;
     
-    const itemsPerPage = 6;
     const totalPages = Math.ceil(filteredFabrics.length / itemsPerPage);
     
     if (totalPages <= 1) {
@@ -3120,29 +3141,105 @@ function updatePagination() {
         return;
     }
     
+    // Ensure currentPageNumber is within valid range
+    if (currentPageNumber > totalPages) {
+        currentPageNumber = totalPages;
+    }
+    if (currentPageNumber < 1) {
+        currentPageNumber = 1;
+    }
+    
     let paginationHTML = '';
-    for (let i = 1; i <= totalPages; i++) {
+    
+    // Previous button
+    if (currentPageNumber > 1) {
         paginationHTML += `
-            <button class="btn btn-outline-primary btn-sm me-1" onclick="goToPage(${i})">
+            <button class="btn btn-outline-primary btn-sm me-1" onclick="goToPage(${currentPageNumber - 1})" title="Previous">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        `;
+    }
+    
+    // Always show first page
+    if (currentPageNumber > 3) {
+        paginationHTML += `
+            <button class="btn btn-outline-primary btn-sm me-1 ${currentPageNumber === 1 ? 'active' : ''}" onclick="goToPage(1)">
+                1
+            </button>
+        `;
+        if (currentPageNumber > 4) {
+            paginationHTML += `<span class="me-1" style="padding: 0.375rem 0.5rem;">...</span>`;
+        }
+    }
+    
+    // Show pages around current page
+    const startPage = Math.max(1, currentPageNumber - 2);
+    const endPage = Math.min(totalPages, currentPageNumber + 2);
+    
+    for (let i = startPage; i <= endPage; i++) {
+        const isActive = i === currentPageNumber ? 'active' : '';
+        paginationHTML += `
+            <button class="btn btn-outline-primary btn-sm me-1 ${isActive}" onclick="goToPage(${i})">
                 ${i}
             </button>
         `;
     }
     
+    // Always show last page
+    if (currentPageNumber < totalPages - 2) {
+        if (currentPageNumber < totalPages - 3) {
+            paginationHTML += `<span class="me-1" style="padding: 0.375rem 0.5rem;">...</span>`;
+        }
+        paginationHTML += `
+            <button class="btn btn-outline-primary btn-sm me-1 ${currentPageNumber === totalPages ? 'active' : ''}" onclick="goToPage(${totalPages})">
+                ${totalPages}
+            </button>
+        `;
+    }
+    
+    // Next button
+    if (currentPageNumber < totalPages) {
+        paginationHTML += `
+            <button class="btn btn-outline-primary btn-sm me-1" onclick="goToPage(${currentPageNumber + 1})" title="Next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        `;
+    }
+    
     pagination.innerHTML = paginationHTML;
+    
+    // Update showing range
+    updateShowingRange();
+}
+
+// Update Showing Range
+function updateShowingRange() {
+    const showingRange = document.getElementById('showingRange');
+    if (!showingRange) return;
+    
+    const start = (currentPageNumber - 1) * itemsPerPage + 1;
+    const end = Math.min(currentPageNumber * itemsPerPage, filteredFabrics.length);
+    
+    showingRange.textContent = `${start}-${end}`;
 }
 
 // Go to Page
 function goToPage(page) {
-    // Simple pagination - for now just show all items
+    currentPageNumber = page;
     displayFabrics();
+    updatePagination();
+    
+    // Scroll to top of products
+    const productsSection = document.querySelector('.products-container');
+    if (productsSection) {
+        productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
 // Update Results Count
 function updateResultsCount() {
     const resultsCount = document.getElementById('resultsCount');
     const totalResults = document.getElementById('totalResults');
-    const showingRange = document.getElementById('showingRange');
     
     const count = filteredFabrics ? filteredFabrics.length : 0;
     
@@ -3154,9 +3251,8 @@ function updateResultsCount() {
         totalResults.textContent = count.toString();
     }
     
-    if (showingRange) {
-        showingRange.textContent = count > 0 ? `1-${count}` : '0-0';
-    }
+    // showingRange is now updated in updateShowingRange()
+    updateShowingRange();
 }
 
 // Handle URL Parameters
@@ -3446,6 +3542,7 @@ function clearAllFilters() {
     
     // Reset filters
     filteredFabrics = [...fabricData];
+    currentPageNumber = 1;
     displayFabrics();
 }
 
@@ -3547,6 +3644,8 @@ window.toggleFilterSection = toggleFilterSection;
 window.clearAllFilters = clearAllFilters;
 window.initializeMobileFilterSidebar = initializeMobileFilterSidebar;
 window.openLoginModal = openLoginModal;
+window.goToPage = goToPage;
+window.updateShowingRange = updateShowingRange;
 
 window.openRegisterModal = openRegisterModal;
 window.openInquiryModal = openInquiryModal;

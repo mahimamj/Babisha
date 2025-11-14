@@ -1196,7 +1196,26 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--primary-color);
 }
 
-.pagination .page-link.active {
+.pagination .page-link.active,
+.pagination .btn.active {
+    background: var(--primary-color) !important;
+    color: var(--white) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.pagination .btn {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--white);
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--transition);
+    font-weight: 500;
+    min-width: 40px;
+}
+
+.pagination .btn:hover {
     background: var(--primary-color);
     color: var(--white);
     border-color: var(--primary-color);
@@ -2234,9 +2253,17 @@ html {
         flex-wrap: wrap;
     }
     
-    .pagination .page-link {
+    .pagination .page-link,
+    .pagination .btn {
         padding: 0.5rem 0.75rem;
         font-size: 0.85rem;
+        min-width: 38px;
+    }
+    
+    .pagination .btn.active {
+        background-color: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
+        color: var(--white) !important;
     }
 }
 
