@@ -777,8 +777,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Enhanced Search and Filter Layout */
 .search-filter-section {
     background: var(--white);
-    padding: 2rem 0;
-    margin-bottom: 2rem;
+    padding: 1.25rem 0;
+    margin-bottom: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -873,7 +873,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -1060,8 +1060,8 @@ h1, h2, h3, h4, h5, h6 {
 .main-content {
     display: grid;
     grid-template-columns: 250px 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -1164,7 +1164,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
     gap: 1rem;
 }
 

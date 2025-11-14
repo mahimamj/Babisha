@@ -1,4 +1,4 @@
-// BABISHA - Lehenga Collection Website JavaScript
+﻿// BABISHA - Lehenga Collection Website JavaScript
 console.log('BABISHA script loaded successfully!');
 
 // Global Variables
@@ -6,391 +6,2718 @@ let currentUser = null;
 let fabricData = [];
 let filteredFabrics = [];
 
-// Sample Fabric Data - Lehenga Collection Only
+// Sample Fabric Data - All Collections
 const sampleFabrics = [
-    // Lehenga Fabrics
     {
         id: 1,
-        name: "Embroidered Fuchsia Lehenga Fabric",
+        name: "RANI Collection - Style 1",
         category: "lehenga",
-        price: 4500,
-        originalPrice: 6000,
-        image: "images/lehengas/lehenga2.jpg.webp",
-        description: "Richly embroidered fuchsia lehenga fabric with intricate gold patterns, perfect for bridal and festive wear.",
+        price: 5051,
+        originalPrice: 6631,
+        image: "images/lehengas/02__RANI_TAARANI-A1.jpeg",
+        description: "Elegant RANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "350-400",
-            material: "Silk Blend with Gold Embroidery",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
             width: "44 inches",
-            colors: "Fuchsia, Gold, Teal",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Bridal Couture Fabrics",
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 140,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 2,
+        name: "RANI Collection - Style 2",
+        category: "lehenga",
+        price: 3805,
+        originalPrice: 5328,
+        image: "images/lehengas/02__RANI_TAARANI-A2.jpeg",
+        description: "Elegant RANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 88,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 3,
+        name: "RANI Collection - Style 3",
+        category: "lehenga",
+        price: 4454,
+        originalPrice: 5684,
+        image: "images/lehengas/02__RANI_TAARANI-A3.jpeg",
+        description: "Elegant RANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
         rating: 4.9,
-        reviews: 95,
+        reviews: 110,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 4,
+        name: "RANI Collection - Style 4",
+        category: "lehenga",
+        price: 3593,
+        originalPrice: 4990,
+        image: "images/lehengas/02__RANI_TAARANI-A4.jpeg",
+        description: "Elegant RANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 184,
         onSale: true,
         savings: 25
     },
     {
-        id: 2,
-        name: "Mint Green Lehenga Fabric",
+        id: 5,
+        name: "RANIKA Collection - Style 1",
         category: "lehenga",
-        price: 3800,
-        originalPrice: 4800,
-        image: "images/lehengas/lehenga3.jpg.webp",
-        description: "Elegant mint green lehenga fabric with silver embroidery and delicate embellishments.",
-        specifications: {
-            gsm: "300-350",
-            material: "Silk Blend with Silver Work",
-            width: "44 inches",
-            colors: "Mint Green, Silver, Light Pink",
-            origin: "India"
-        },
-        supplier: "Ethnic Elegance Co.",
-        rating: 4.8,
-        reviews: 78,
-        onSale: true,
-        savings: 21
-    },
-    {
-        id: 3,
-        name: "Cream Embroidered Lehenga Fabric",
-        category: "lehenga",
-        price: 4200,
-        originalPrice: 5500,
-        image: "images/lehengas/lehenga1.jpg.webp",
-        description: "Luxurious cream lehenga fabric with intricate gold and silver embroidery, perfect for special occasions.",
+        price: 5287,
+        originalPrice: 6832,
+        image: "images/lehengas/03__RANIKA_TAARANI-B1.jpeg",
+        description: "Elegant RANIKA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
             gsm: "320-380",
-            material: "Silk Blend with Gold & Silver Work",
+            material: "Silk Blend with Embroidery",
             width: "44 inches",
-            colors: "Cream, Gold, Silver",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Royal Textiles",
+        supplier: "BABISHA Collections",
         rating: 4.9,
-        reviews: 112,
+        reviews: 81,
         onSale: true,
         savings: 24
     },
-    
-    // Saree Fabrics
-    {
-        id: 4,
-        name: "Olive Green Embroidered Saree",
-        category: "sarees",
-        price: 2200,
-        originalPrice: 2800,
-        image: "images/sarees/saree1.jpg.jpg",
-        description: "Beautiful olive green saree with colorful pom-pom border and intricate embroidery work.",
-        specifications: {
-            gsm: "140-160",
-            material: "Cotton Blend with Embroidery",
-            width: "44 inches",
-            colors: "Olive Green with Multi-color Border",
-            origin: "India"
-        },
-        supplier: "Ethnic Elegance Co.",
-        rating: 4.7,
-        reviews: 92,
-        onSale: true,
-        savings: 21
-    },
-    {
-        id: 5,
-        name: "Fuchsia Pink Golden Saree",
-        category: "sarees",
-        price: 3200,
-        originalPrice: 4000,
-        image: "images/sarees/saree2.jpg.jpg",
-        description: "Stunning fuchsia pink saree with golden border and elegant polka dot pattern.",
-        specifications: {
-            gsm: "120-140",
-            material: "Silk Blend with Golden Work",
-            width: "45 inches",
-            colors: "Fuchsia Pink with Golden Accents",
-            origin: "India"
-        },
-        supplier: "Royal Textiles",
-        rating: 4.8,
-        reviews: 145,
-        onSale: true,
-        savings: 20
-    },
     {
         id: 6,
-        name: "Fuchsia Pink Embroidered Saree",
-        category: "sarees",
-        price: 2800,
-        originalPrice: 3500,
-        image: "images/sarees/saree3.jpg.jpg",
-        description: "Elegant fuchsia pink saree with intricate golden embroidery and traditional patterns.",
+        name: "RANIKA Collection - Style 2",
+        category: "lehenga",
+        price: 3547,
+        originalPrice: 5461,
+        image: "images/lehengas/03__RANIKA_TAARANI-B2.jpeg",
+        description: "Elegant RANIKA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "130-150",
-            material: "Silk Blend with Golden Embroidery",
-            width: "45 inches",
-            colors: "Fuchsia Pink with Golden Work",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Bridal Couture Fabrics",
+        supplier: "BABISHA Collections",
         rating: 4.9,
-        reviews: 178,
+        reviews: 62,
         onSale: true,
         savings: 20
     },
     {
         id: 7,
-        name: "Vibrant Green Golden Saree",
-        category: "sarees",
-        price: 2500,
-        originalPrice: 3200,
-        image: "images/sarees/saree4.jpg.jpg",
-        description: "Vibrant green saree with prominent golden border, perfect for festive occasions.",
+        name: "RANIKA Collection - Style 3",
+        category: "lehenga",
+        price: 3704,
+        originalPrice: 5623,
+        image: "images/lehengas/03__RANIKA_TAARANI-B3.jpeg",
+        description: "Elegant RANIKA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "110-130",
-            material: "Silk Blend with Golden Border",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
             width: "44 inches",
-            colors: "Vibrant Green with Golden Border",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Silk Heritage Co.",
-        rating: 4.6,
-        reviews: 89,
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 62,
         onSale: true,
-        savings: 22
+        savings: 27
     },
     {
         id: 8,
-        name: "Multi-Color Traditional Saree",
-        category: "sarees",
-        price: 3500,
-        originalPrice: 4500,
-        image: "images/sarees/saree5.jpg.jpg",
-        description: "Traditional multi-colored saree featuring mustard yellow, purple, and cream sections with golden borders.",
+        name: "RANIKA Collection - Style 4",
+        category: "lehenga",
+        price: 3895,
+        originalPrice: 5164,
+        image: "images/lehengas/03__RANIKA_TAARANI-B4.jpeg",
+        description: "Elegant RANIKA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "150-170",
-            material: "Silk Blend with Traditional Weaving",
-            width: "45 inches",
-            colors: "Mustard Yellow, Purple, Cream with Golden Borders",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Traditional Weavers Co.",
-        rating: 4.8,
-        reviews: 156,
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 180,
         onSale: true,
-        savings: 22
+        savings: 23
     },
     {
         id: 9,
-        name: "Red Golden Striped Saree",
-        category: "sarees",
-        price: 2900,
-        originalPrice: 3700,
-        image: "images/sarees/saree6.jpg.jpg",
-        description: "Classic red saree with horizontal golden stripes and decorative tassels.",
+        name: "RUPA Collection - Style 1",
+        category: "lehenga",
+        price: 4325,
+        originalPrice: 5480,
+        image: "images/lehengas/04__RUPA_TAARANI-C1.jpeg",
+        description: "Elegant RUPA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "125-145",
-            material: "Silk Blend with Golden Stripes",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
             width: "44 inches",
-            colors: "Red with Golden Stripes",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Elegant Fabrics",
-        rating: 4.7,
-        reviews: 134,
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 107,
         onSale: true,
         savings: 22
     },
     {
         id: 10,
-        name: "Premium Collection Saree Set",
-        category: "sarees",
-        price: 4200,
-        originalPrice: 5500,
-        image: "images/sarees/saree7.jpg.jpg",
-        description: "Premium collection of intricately patterned sarees in pink, orange, and red with beautiful embellishments.",
+        name: "RUPA Collection - Style 2",
+        category: "lehenga",
+        price: 3661,
+        originalPrice: 4872,
+        image: "images/lehengas/04__RUPA_TAARANI-C2.jpeg",
+        description: "Elegant RUPA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "160-180",
-            material: "Premium Silk with Intricate Patterns",
-            width: "45 inches",
-            colors: "Pink, Orange, Red with Golden Work",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Premium Textiles",
-        rating: 4.9,
-        reviews: 203,
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 52,
         onSale: true,
-        savings: 24
+        savings: 27
     },
-
-    // Men's Collection
     {
         id: 11,
-        name: "Royal Blue Embroidered Sherwani",
-        category: "men",
-        price: 8500,
-        originalPrice: 11000,
-        image: "images/men/men1.jpg.jpg",
-        description: "Magnificent royal blue velvet sherwani with intricate silver embroidery, perfect for weddings and special occasions.",
+        name: "RUPA Collection - Style 3",
+        category: "lehenga",
+        price: 5224,
+        originalPrice: 6778,
+        image: "images/lehengas/04__RUPA_TAARANI-C3.jpeg",
+        description: "Elegant RUPA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "400-450",
-            material: "Velvet with Silver Embroidery",
-            width: "Full Length Sherwani",
-            colors: "Royal Blue with Silver Work",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Royal Couture",
-        rating: 4.9,
-        reviews: 156,
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 161,
         onSale: true,
-        savings: 23
+        savings: 27
     },
     {
         id: 12,
-        name: "Cream Gold Embroidered Sherwani",
-        category: "men",
-        price: 9200,
-        originalPrice: 12000,
-        image: "images/men/men2.jpg.jpg",
-        description: "Luxurious cream sherwani with intricate gold embroidery and traditional patterns, ideal for festive celebrations.",
+        name: "RUPA Collection - Style 4",
+        category: "lehenga",
+        price: 3927,
+        originalPrice: 5017,
+        image: "images/lehengas/04__RUPA_TAARANI-C4.jpeg",
+        description: "Elegant RUPA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "380-420",
-            material: "Silk Blend with Gold Embroidery",
-            width: "Full Length Sherwani",
-            colors: "Cream with Gold Work",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Heritage Textiles",
-        rating: 4.8,
-        reviews: 189,
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 69,
         onSale: true,
-        savings: 23
+        savings: 21
     },
     {
         id: 13,
-        name: "Maroon Velvet Bandhgala",
-        category: "men",
-        price: 6800,
-        originalPrice: 8500,
-        image: "images/men/men3.jpg.jpg",
-        description: "Elegant maroon velvet bandhgala jacket with sophisticated styling, perfect for formal events.",
+        name: "RANO Collection - Style 1",
+        category: "lehenga",
+        price: 4564,
+        originalPrice: 6457,
+        image: "images/lehengas/05__RANO_TAARANI-D1.jpeg",
+        description: "Elegant RANO collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "350-380",
-            material: "Velvet with Silk Lining",
-            width: "Bandhgala Jacket",
-            colors: "Maroon with Gold Accents",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Elite Menswear",
-        rating: 4.7,
-        reviews: 134,
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 133,
         onSale: true,
-        savings: 20
+        savings: 29
     },
     {
         id: 14,
-        name: "Dark Green Bandhgala Collection",
-        category: "men",
-        price: 7200,
-        originalPrice: 9000,
-        image: "images/men/men4.jpg.jpg",
-        description: "Sophisticated dark green bandhgala with intricate patterns and elegant styling for special occasions.",
+        name: "RANO Collection - Style 2",
+        category: "lehenga",
+        price: 3674,
+        originalPrice: 5098,
+        image: "images/lehengas/05__RANO_TAARANI-D2.jpeg",
+        description: "Elegant RANO collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "360-400",
+            gsm: "320-380",
             material: "Silk Blend with Embroidery",
-            width: "Bandhgala Jacket",
-            colors: "Dark Green with Gold Work",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Traditional Couture",
-        rating: 4.8,
-        reviews: 167,
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 55,
         onSale: true,
-        savings: 20
+        savings: 27
     },
     {
         id: 15,
-        name: "Navy Blue Embroidered Bandhgala",
-        category: "men",
-        price: 7500,
-        originalPrice: 9500,
-        image: "images/men/men5.jpg.jpg",
-        description: "Classic navy blue bandhgala with rich gold embroidery and traditional mandarin collar design.",
+        name: "RANO Collection - Style 3",
+        category: "lehenga",
+        price: 4841,
+        originalPrice: 6246,
+        image: "images/lehengas/05__RANO_TAARANI-D3.jpeg",
+        description: "Elegant RANO collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "370-410",
-            material: "Silk Blend with Gold Embroidery",
-            width: "Bandhgala Jacket",
-            colors: "Navy Blue with Gold Work",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Royal Heritage",
-        rating: 4.9,
-        reviews: 198,
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 84,
         onSale: true,
         savings: 21
     },
     {
         id: 16,
-        name: "Red Silk Kurta Set",
-        category: "men",
-        price: 4200,
-        originalPrice: 5500,
-        image: "images/men/men6.jpg.jpg",
-        description: "Vibrant red silk kurta with gold embroidery and matching churidar, perfect for festive occasions.",
+        name: "RANO Collection - Style 4",
+        category: "lehenga",
+        price: 5215,
+        originalPrice: 6873,
+        image: "images/lehengas/05__RANO_TAARANI-D4.jpeg",
+        description: "Elegant RANO collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "200-250",
-            material: "Pure Silk with Gold Work",
-            width: "Kurta Set",
-            colors: "Red with Gold Embroidery",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Festive Wear Co.",
-        rating: 4.6,
-        reviews: 145,
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 133,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 17,
+        name: "RADHA Collection - Style 1",
+        category: "lehenga",
+        price: 4236,
+        originalPrice: 5833,
+        image: "images/lehengas/06__RADHA_TAARANI-E1.jpeg",
+        description: "Elegant RADHA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 81,
         onSale: true,
         savings: 24
     },
     {
-        id: 17,
-        name: "Teal Blue Kurta Collection",
-        category: "men",
-        price: 3800,
-        originalPrice: 4800,
-        image: "images/men/men7.jpg.jpg",
-        description: "Elegant teal blue kurta with intricate patterns and traditional styling, perfect for casual and semi-formal occasions.",
+        id: 18,
+        name: "RADHA Collection - Style 2",
+        category: "lehenga",
+        price: 4629,
+        originalPrice: 6585,
+        image: "images/lehengas/06__RADHA_TAARANI-E2.jpeg",
+        description: "Elegant RADHA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
         specifications: {
-            gsm: "180-220",
-            material: "Cotton Silk Blend",
-            width: "Kurta Set",
-            colors: "Teal Blue with Pattern Work",
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
             origin: "India"
         },
-        supplier: "Modern Ethnic",
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 85,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 19,
+        name: "RADHA Collection - Style 3",
+        category: "lehenga",
+        price: 4498,
+        originalPrice: 6428,
+        image: "images/lehengas/06__RADHA_TAARANI-E3.jpeg",
+        description: "Elegant RADHA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
         rating: 4.5,
+        reviews: 159,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 20,
+        name: "RADHA Collection - Style 4",
+        category: "lehenga",
+        price: 5322,
+        originalPrice: 6920,
+        image: "images/lehengas/06__RADHA_TAARANI-E4.jpeg",
+        description: "Elegant RADHA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 182,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 21,
+        name: "ALIA Collection - Style 1",
+        category: "lehenga",
+        price: 4374,
+        originalPrice: 5500,
+        image: "images/lehengas/07__ALIA_UNIQUE-A1.jpeg",
+        description: "Elegant ALIA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 60,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 22,
+        name: "ALIA Collection - Style 2",
+        category: "lehenga",
+        price: 4551,
+        originalPrice: 6287,
+        image: "images/lehengas/07__ALIA_UNIQUE-A2.jpeg",
+        description: "Elegant ALIA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 131,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 23,
+        name: "AMARA Collection - Style 1",
+        category: "lehenga",
+        price: 4300,
+        originalPrice: 6023,
+        image: "images/lehengas/08__AMARA_UNIQUE-B1.jpeg",
+        description: "Elegant AMARA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 192,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 24,
+        name: "AMARA Collection - Style 2",
+        category: "lehenga",
+        price: 4176,
+        originalPrice: 5384,
+        image: "images/lehengas/08__AMARA_UNIQUE-B2.jpeg",
+        description: "Elegant AMARA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 191,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 25,
+        name: "ANAYA Collection - Style 1",
+        category: "lehenga",
+        price: 3884,
+        originalPrice: 4960,
+        image: "images/lehengas/09__ANAYA_UNIQUE-C1.jpeg",
+        description: "Elegant ANAYA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 168,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 26,
+        name: "ANAYA Collection - Style 2",
+        category: "lehenga",
+        price: 4008,
+        originalPrice: 5428,
+        image: "images/lehengas/09__ANAYA_UNIQUE-C2.jpeg",
+        description: "Elegant ANAYA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 162,
+        onSale: true,
+        savings: 21
+    },
+    {
+        id: 27,
+        name: "AVNI Collection - Style 1",
+        category: "lehenga",
+        price: 4960,
+        originalPrice: 6858,
+        image: "images/lehengas/10__AVNI_UNIQUE-D1.jpeg",
+        description: "Elegant AVNI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 168,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 28,
+        name: "AVNI Collection - Style 2",
+        category: "lehenga",
+        price: 3531,
+        originalPrice: 5519,
+        image: "images/lehengas/10__AVNI_UNIQUE-D2.jpeg",
+        description: "Elegant AVNI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 76,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 29,
+        name: "AAYRA Collection - Style 1",
+        category: "lehenga",
+        price: 5330,
+        originalPrice: 7268,
+        image: "images/lehengas/11__AAYRA_UNIQUE-E1.jpeg",
+        description: "Elegant AAYRA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 59,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 30,
+        name: "AAYRA Collection - Style 2",
+        category: "lehenga",
+        price: 3731,
+        originalPrice: 5405,
+        image: "images/lehengas/11__AAYRA_UNIQUE-E2.jpeg",
+        description: "Elegant AAYRA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 107,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 31,
+        name: "ADITI Collection - Style 1",
+        category: "lehenga",
+        price: 5432,
+        originalPrice: 7030,
+        image: "images/lehengas/12__ADITI_UNIQUE-F1.jpeg",
+        description: "Elegant ADITI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 122,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 32,
+        name: "ADITI Collection - Style 2",
+        category: "lehenga",
+        price: 4539,
+        originalPrice: 5544,
+        image: "images/lehengas/12__ADITI_UNIQUE-F2.jpeg",
+        description: "Elegant ADITI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 51,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 33,
+        name: "ANJALI Collection - Style 1",
+        category: "lehenga",
+        price: 4836,
+        originalPrice: 6803,
+        image: "images/lehengas/13__ANJALI_UNIQUE-G1.jpeg",
+        description: "Elegant ANJALI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 127,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 34,
+        name: "ANJALI Collection - Style 2",
+        category: "lehenga",
+        price: 3500,
+        originalPrice: 5467,
+        image: "images/lehengas/13__ANJALI_UNIQUE-G2.jpeg",
+        description: "Elegant ANJALI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 78,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 35,
+        name: "AARIKA Collection - Style 1",
+        category: "lehenga",
+        price: 4100,
+        originalPrice: 5566,
+        image: "images/lehengas/14__AARIKA_UNIQUE-H1.jpeg",
+        description: "Elegant AARIKA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 78,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 36,
+        name: "AARIKA Collection - Style 2",
+        category: "lehenga",
+        price: 3507,
+        originalPrice: 4556,
+        image: "images/lehengas/14__AARIKA_UNIQUE-H2.jpeg",
+        description: "Elegant AARIKA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 169,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 37,
+        name: "AMORA Collection - Style 1",
+        category: "lehenga",
+        price: 5035,
+        originalPrice: 7023,
+        image: "images/lehengas/15__AMORA_UNIQUE-I1.jpeg",
+        description: "Elegant AMORA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 158,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 38,
+        name: "AMORA Collection - Style 2",
+        category: "lehenga",
+        price: 5224,
+        originalPrice: 7004,
+        image: "images/lehengas/15__AMORA_UNIQUE-I2.jpeg",
+        description: "Elegant AMORA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 83,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 39,
+        name: "BAANI Collection - Style 1",
+        category: "lehenga",
+        price: 5412,
+        originalPrice: 7276,
+        image: "images/lehengas/16__BAANI_A1.jpeg",
+        description: "Elegant BAANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 68,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 40,
+        name: "BAANI Collection - Style 2",
+        category: "lehenga",
+        price: 4992,
+        originalPrice: 6464,
+        image: "images/lehengas/16__BAANI_A2.jpeg",
+        description: "Elegant BAANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 102,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 41,
+        name: "BAANI Collection - Style 3",
+        category: "lehenga",
+        price: 3771,
+        originalPrice: 5028,
+        image: "images/lehengas/16__BAANI_A3.jpeg",
+        description: "Elegant BAANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 111,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 42,
+        name: "BINAL Collection - Style 1",
+        category: "lehenga",
+        price: 4361,
+        originalPrice: 5815,
+        image: "images/lehengas/17__BINAL_B1.jpeg",
+        description: "Elegant BINAL collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 66,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 43,
+        name: "BINAL Collection - Style 2",
+        category: "lehenga",
+        price: 4164,
+        originalPrice: 6121,
+        image: "images/lehengas/17__BINAL_B2.jpeg",
+        description: "Elegant BINAL collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 159,
+        onSale: true,
+        savings: 21
+    },
+    {
+        id: 44,
+        name: "BINAL Collection - Style 3",
+        category: "lehenga",
+        price: 4473,
+        originalPrice: 5488,
+        image: "images/lehengas/17__BINAL_B3.jpeg",
+        description: "Elegant BINAL collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 82,
+        onSale: true,
+        savings: 21
+    },
+    {
+        id: 45,
+        name: "BELA Collection - Style 1",
+        category: "lehenga",
+        price: 4677,
+        originalPrice: 6641,
+        image: "images/lehengas/18__BELA_A1.jpeg",
+        description: "Elegant BELA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 160,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 46,
+        name: "BELA Collection - Style 2",
+        category: "lehenga",
+        price: 3720,
+        originalPrice: 4754,
+        image: "images/lehengas/18__BELA_A2.jpeg",
+        description: "Elegant BELA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 154,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 47,
+        name: "BELA Collection - Style 3",
+        category: "lehenga",
+        price: 4945,
+        originalPrice: 6406,
+        image: "images/lehengas/18__BELA_A3.jpeg",
+        description: "Elegant BELA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 81,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 48,
+        name: "BINITA Collection - Style 1",
+        category: "lehenga",
+        price: 4023,
+        originalPrice: 5186,
+        image: "images/lehengas/20__BINITA_B1.jpeg",
+        description: "Elegant BINITA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 139,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 49,
+        name: "BINITA Collection - Style 2",
+        category: "lehenga",
+        price: 5394,
+        originalPrice: 7387,
+        image: "images/lehengas/20__BINITA_B2.jpeg",
+        description: "Elegant BINITA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 139,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 50,
+        name: "BINITA Collection - Style 3",
+        category: "lehenga",
+        price: 4460,
+        originalPrice: 5893,
+        image: "images/lehengas/20__BINITA_B3.jpeg",
+        description: "Elegant BINITA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 72,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 51,
+        name: "BRIJA Collection - Style 1",
+        category: "lehenga",
+        price: 4716,
+        originalPrice: 5848,
+        image: "images/lehengas/21__BRIJA_C1.jpeg",
+        description: "Elegant BRIJA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 62,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 52,
+        name: "BRIJA Collection - Style 2",
+        category: "lehenga",
+        price: 4260,
+        originalPrice: 5445,
+        image: "images/lehengas/21__BRIJA_C2.jpeg",
+        description: "Elegant BRIJA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 63,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 53,
+        name: "CHITRA Collection - Style 1",
+        category: "lehenga",
+        price: 4046,
+        originalPrice: 5257,
+        image: "images/lehengas/22__CHITRA_B1.jpeg",
+        description: "Elegant CHITRA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 82,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 54,
+        name: "CHITRA Collection - Style 2",
+        category: "lehenga",
+        price: 5462,
+        originalPrice: 6490,
+        image: "images/lehengas/22__CHITRA_B2.jpeg",
+        description: "Elegant CHITRA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 141,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 55,
+        name: "CHITRA Collection - Style 3",
+        category: "lehenga",
+        price: 4929,
+        originalPrice: 6670,
+        image: "images/lehengas/22__CHITRA_B3.jpeg",
+        description: "Elegant CHITRA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 57,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 56,
+        name: "CHITRA Collection - Style 4",
+        category: "lehenga",
+        price: 5031,
+        originalPrice: 6990,
+        image: "images/lehengas/22__CHITRA_B4.jpeg",
+        description: "Elegant CHITRA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 94,
+        onSale: true,
+        savings: 21
+    },
+    {
+        id: 57,
+        name: "CHARMI Collection - Style 1",
+        category: "lehenga",
+        price: 5355,
+        originalPrice: 7151,
+        image: "images/lehengas/23__CHARMI_A1.jpeg",
+        description: "Elegant CHARMI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 67,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 58,
+        name: "CHARMI Collection - Style 2",
+        category: "lehenga",
+        price: 3652,
+        originalPrice: 4849,
+        image: "images/lehengas/23__CHARMI_A2.jpeg",
+        description: "Elegant CHARMI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 186,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 59,
+        name: "CHARMI Collection - Style 3",
+        category: "lehenga",
+        price: 5350,
+        originalPrice: 6890,
+        image: "images/lehengas/23__CHARMI_A3.jpeg",
+        description: "Elegant CHARMI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 91,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 60,
+        name: "CHARMI Collection - Style 4",
+        category: "lehenga",
+        price: 5375,
+        originalPrice: 7264,
+        image: "images/lehengas/23__CHARMI_A4.jpeg",
+        description: "Elegant CHARMI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
         reviews: 98,
         onSale: true,
         savings: 21
+    },
+    {
+        id: 61,
+        name: "CHHAYA Collection - Style 1",
+        category: "lehenga",
+        price: 3512,
+        originalPrice: 5484,
+        image: "images/lehengas/24__CHHAYA_A1.jpeg",
+        description: "Elegant CHHAYA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 95,
+        onSale: true,
+        savings: 25
+    },
+    {
+        id: 62,
+        name: "CHHAYA Collection - Style 2",
+        category: "lehenga",
+        price: 4867,
+        originalPrice: 5940,
+        image: "images/lehengas/24__CHHAYA_A2.jpeg",
+        description: "Elegant CHHAYA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 104,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 63,
+        name: "CHHAYA Collection - Style 3",
+        category: "lehenga",
+        price: 4911,
+        originalPrice: 6745,
+        image: "images/lehengas/24__CHHAYA_A3.jpeg",
+        description: "Elegant CHHAYA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 85,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 64,
+        name: "CHHAYA Collection - Style 4",
+        category: "lehenga",
+        price: 4530,
+        originalPrice: 5746,
+        image: "images/lehengas/24__CHHAYA_A4.jpeg",
+        description: "Elegant CHHAYA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 190,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 65,
+        name: "CHHAYA Collection - Style 5",
+        category: "lehenga",
+        price: 4308,
+        originalPrice: 5450,
+        image: "images/lehengas/24__CHHAYA_A5.jpeg",
+        description: "Elegant CHHAYA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 60,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 66,
+        name: "CHANDANI Collection - Style 1",
+        category: "lehenga",
+        price: 5035,
+        originalPrice: 6396,
+        image: "images/lehengas/25__CHANDANI_B1.jpeg",
+        description: "Elegant CHANDANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 120,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 67,
+        name: "CHANDANI Collection - Style 2",
+        category: "lehenga",
+        price: 5227,
+        originalPrice: 6768,
+        image: "images/lehengas/25__CHANDANI_B2.jpeg",
+        description: "Elegant CHANDANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 123,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 68,
+        name: "CHANDANI Collection - Style 3",
+        category: "lehenga",
+        price: 4604,
+        originalPrice: 6221,
+        image: "images/lehengas/25__CHANDANI_B3.jpeg",
+        description: "Elegant CHANDANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 192,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 69,
+        name: "CHANDANI Collection - Style 4",
+        category: "lehenga",
+        price: 4956,
+        originalPrice: 6546,
+        image: "images/lehengas/25__CHANDANI_B4.jpeg",
+        description: "Elegant CHANDANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 165,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 70,
+        name: "CHANDANI Collection - Style 5",
+        category: "lehenga",
+        price: 3938,
+        originalPrice: 5044,
+        image: "images/lehengas/25__CHANDANI_B5.jpeg",
+        description: "Elegant CHANDANI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 155,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 71,
+        name: "CHETVI Collection - Style 1",
+        category: "lehenga",
+        price: 5226,
+        originalPrice: 6755,
+        image: "images/lehengas/26__CHETVI_C1.jpeg",
+        description: "Elegant CHETVI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 72,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 72,
+        name: "CHETVI Collection - Style 2",
+        category: "lehenga",
+        price: 4244,
+        originalPrice: 5387,
+        image: "images/lehengas/26__CHETVI_C2.jpeg",
+        description: "Elegant CHETVI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 120,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 73,
+        name: "CHETVI Collection - Style 3",
+        category: "lehenga",
+        price: 3606,
+        originalPrice: 5301,
+        image: "images/lehengas/26__CHETVI_C3.jpeg",
+        description: "Elegant CHETVI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 85,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 74,
+        name: "CHETVI Collection - Style 4",
+        category: "lehenga",
+        price: 3784,
+        originalPrice: 5245,
+        image: "images/lehengas/26__CHETVI_C4.jpeg",
+        description: "Elegant CHETVI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 145,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 75,
+        name: "CHETVI Collection - Style 5",
+        category: "lehenga",
+        price: 3904,
+        originalPrice: 5706,
+        image: "images/lehengas/26__CHETVI_C5.jpeg",
+        description: "Elegant CHETVI collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 91,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 76,
+        name: "1 Collection - Style 1",
+        category: "lehenga",
+        price: 4757,
+        originalPrice: 6538,
+        image: "images/lehengas/27_1__DIYA_A1.jpeg",
+        description: "Elegant 1 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 107,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 77,
+        name: "1 Collection - Style 2",
+        category: "lehenga",
+        price: 4591,
+        originalPrice: 5732,
+        image: "images/lehengas/27_1__DIYA_A2.jpeg",
+        description: "Elegant 1 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 82,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 78,
+        name: "1 Collection - Style 3",
+        category: "lehenga",
+        price: 4606,
+        originalPrice: 5786,
+        image: "images/lehengas/27_1__DIYA_A3.jpeg",
+        description: "Elegant 1 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 53,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 79,
+        name: "1 Collection - Style 4",
+        category: "lehenga",
+        price: 5184,
+        originalPrice: 7133,
+        image: "images/lehengas/27_1__DIYA_A4.jpeg",
+        description: "Elegant 1 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 133,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 80,
+        name: "2 Collection - Style 1",
+        category: "lehenga",
+        price: 5363,
+        originalPrice: 6528,
+        image: "images/lehengas/27_2__DHARA_B1.jpeg",
+        description: "Elegant 2 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 148,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 81,
+        name: "2 Collection - Style 2",
+        category: "lehenga",
+        price: 4603,
+        originalPrice: 5658,
+        image: "images/lehengas/27_2__DHARA_B2.jpeg",
+        description: "Elegant 2 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 173,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 82,
+        name: "2 Collection - Style 3",
+        category: "lehenga",
+        price: 4357,
+        originalPrice: 6354,
+        image: "images/lehengas/27_2__DHARA_B3.jpeg",
+        description: "Elegant 2 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 125,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 83,
+        name: "2 Collection - Style 4",
+        category: "lehenga",
+        price: 3589,
+        originalPrice: 5573,
+        image: "images/lehengas/27_2__DHARA_B4.jpeg",
+        description: "Elegant 2 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 156,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 84,
+        name: "3 Collection - Style 1",
+        category: "lehenga",
+        price: 4739,
+        originalPrice: 6299,
+        image: "images/lehengas/27_3__DEVIKA_C1.jpeg",
+        description: "Elegant 3 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 67,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 85,
+        name: "3 Collection - Style 2",
+        category: "lehenga",
+        price: 4274,
+        originalPrice: 5893,
+        image: "images/lehengas/27_3__DEVIKA_C2.jpeg",
+        description: "Elegant 3 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 167,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 86,
+        name: "3 Collection - Style 3",
+        category: "lehenga",
+        price: 4022,
+        originalPrice: 5967,
+        image: "images/lehengas/27_3__DEVIKA_C3.jpeg",
+        description: "Elegant 3 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 187,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 87,
+        name: "3 Collection - Style 4",
+        category: "lehenga",
+        price: 5074,
+        originalPrice: 6718,
+        image: "images/lehengas/27_3__DEVIKA_C4.jpeg",
+        description: "Elegant 3 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 130,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 88,
+        name: "4 Collection - Style 1",
+        category: "lehenga",
+        price: 4864,
+        originalPrice: 5940,
+        image: "images/lehengas/27_4__DAMINI_D1.jpeg",
+        description: "Elegant 4 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 101,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 89,
+        name: "4 Collection - Style 2",
+        category: "lehenga",
+        price: 4624,
+        originalPrice: 6163,
+        image: "images/lehengas/27_4__DAMINI_D2.jpeg",
+        description: "Elegant 4 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 117,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 90,
+        name: "4 Collection - Style 3",
+        category: "lehenga",
+        price: 4596,
+        originalPrice: 6513,
+        image: "images/lehengas/27_4__DAMINI_D3.jpeg",
+        description: "Elegant 4 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 113,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 91,
+        name: "4 Collection - Style 4",
+        category: "lehenga",
+        price: 4014,
+        originalPrice: 5084,
+        image: "images/lehengas/27_4__DAMINI_D4.jpeg",
+        description: "Elegant 4 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 136,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 92,
+        name: "5 Collection - Style 1",
+        category: "lehenga",
+        price: 4640,
+        originalPrice: 6473,
+        image: "images/lehengas/27_5__DOYITA_E1.jpeg",
+        description: "Elegant 5 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 138,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 93,
+        name: "5 Collection - Style 2",
+        category: "lehenga",
+        price: 5289,
+        originalPrice: 6605,
+        image: "images/lehengas/27_5__DOYITA_E2.jpeg",
+        description: "Elegant 5 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 111,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 94,
+        name: "5 Collection - Style 3",
+        category: "lehenga",
+        price: 5213,
+        originalPrice: 6697,
+        image: "images/lehengas/27_5__DOYITA_E3.jpeg",
+        description: "Elegant 5 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 177,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 95,
+        name: "6 Collection - Style 1",
+        category: "lehenga",
+        price: 4399,
+        originalPrice: 5812,
+        image: "images/lehengas/27_6__DAYA_F1.jpeg",
+        description: "Elegant 6 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 193,
+        onSale: true,
+        savings: 21
+    },
+    {
+        id: 96,
+        name: "6 Collection - Style 2",
+        category: "lehenga",
+        price: 3899,
+        originalPrice: 5234,
+        image: "images/lehengas/27_6__DAYA_F2.jpeg",
+        description: "Elegant 6 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 113,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 97,
+        name: "6 Collection - Style 3",
+        category: "lehenga",
+        price: 4117,
+        originalPrice: 5622,
+        image: "images/lehengas/27_6__DAYA_F3.jpeg",
+        description: "Elegant 6 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 134,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 98,
+        name: "6 Collection - Style 4",
+        category: "lehenga",
+        price: 3728,
+        originalPrice: 5220,
+        image: "images/lehengas/27_6__DAYA_F4.jpeg",
+        description: "Elegant 6 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 187,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 99,
+        name: "7 Collection - Style 1",
+        category: "lehenga",
+        price: 3698,
+        originalPrice: 5509,
+        image: "images/lehengas/27_7__DALIHA_G1.jpeg",
+        description: "Elegant 7 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 57,
+        onSale: true,
+        savings: 25
+    },
+    {
+        id: 100,
+        name: "7 Collection - Style 2",
+        category: "lehenga",
+        price: 3915,
+        originalPrice: 5476,
+        image: "images/lehengas/27_7__DALIHA_G2.jpeg",
+        description: "Elegant 7 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 142,
+        onSale: true,
+        savings: 25
+    },
+    {
+        id: 101,
+        name: "7 Collection - Style 3",
+        category: "lehenga",
+        price: 5397,
+        originalPrice: 6720,
+        image: "images/lehengas/27_7__DALIHA_G3.jpeg",
+        description: "Elegant 7 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 195,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 102,
+        name: "7 Collection - Style 4",
+        category: "lehenga",
+        price: 4387,
+        originalPrice: 5912,
+        image: "images/lehengas/27_7__DALIHA_G4.jpeg",
+        description: "Elegant 7 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 84,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 103,
+        name: "7 Collection - Style 5",
+        category: "lehenga",
+        price: 4957,
+        originalPrice: 6392,
+        image: "images/lehengas/27_7__DALIHA_G5.jpeg",
+        description: "Elegant 7 collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 175,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 104,
+        name: "ERIS Collection - Style 1",
+        category: "lehenga",
+        price: 3636,
+        originalPrice: 5234,
+        image: "images/lehengas/28__ERIS_A1.jpeg",
+        description: "Elegant ERIS collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 140,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 105,
+        name: "ERIS Collection - Style 2",
+        category: "lehenga",
+        price: 3620,
+        originalPrice: 5274,
+        image: "images/lehengas/28__ERIS_A2.jpeg",
+        description: "Elegant ERIS collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 76,
+        onSale: true,
+        savings: 21
+    },
+    {
+        id: 106,
+        name: "ERIS Collection - Style 3",
+        category: "lehenga",
+        price: 3652,
+        originalPrice: 5032,
+        image: "images/lehengas/28__ERIS_A3.jpeg",
+        description: "Elegant ERIS collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 102,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 107,
+        name: "ERIS Collection - Style 4",
+        category: "lehenga",
+        price: 4865,
+        originalPrice: 6256,
+        image: "images/lehengas/28__ERIS_A4.jpeg",
+        description: "Elegant ERIS collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.5,
+        reviews: 160,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 108,
+        name: "EKTA Collection - Style 1",
+        category: "lehenga",
+        price: 4549,
+        originalPrice: 6141,
+        image: "images/lehengas/29__EKTA_E1.jpeg",
+        description: "Elegant EKTA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 155,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 109,
+        name: "EKTA Collection - Style 2",
+        category: "lehenga",
+        price: 5206,
+        originalPrice: 7161,
+        image: "images/lehengas/29__EKTA_E2.jpeg",
+        description: "Elegant EKTA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 72,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 110,
+        name: "EKTA Collection - Style 3",
+        category: "lehenga",
+        price: 4775,
+        originalPrice: 6650,
+        image: "images/lehengas/29__EKTA_E3.jpeg",
+        description: "Elegant EKTA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 93,
+        onSale: true,
+        savings: 27
+    },
+    {
+        id: 111,
+        name: "EKTA Collection - Style 4",
+        category: "lehenga",
+        price: 4715,
+        originalPrice: 6074,
+        image: "images/lehengas/29__EKTA_E4.jpeg",
+        description: "Elegant EKTA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 185,
+        onSale: true,
+        savings: 21
+    },
+    {
+        id: 112,
+        name: "EKTA Collection - Style 5",
+        category: "lehenga",
+        price: 3709,
+        originalPrice: 5468,
+        image: "images/lehengas/29__EKTA_E5.jpeg",
+        description: "Elegant EKTA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 122,
+        onSale: true,
+        savings: 24
+    },
+    {
+        id: 113,
+        name: "FALAK Collection - Style 1",
+        category: "lehenga",
+        price: 3985,
+        originalPrice: 5810,
+        image: "images/lehengas/30__FALAK_A1.jpeg",
+        description: "Elegant FALAK collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 112,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 114,
+        name: "FALAK Collection - Style 2",
+        category: "lehenga",
+        price: 5068,
+        originalPrice: 6491,
+        image: "images/lehengas/30__FALAK_A2.jpeg",
+        description: "Elegant FALAK collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 119,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 115,
+        name: "FALAK Collection - Style 3",
+        category: "lehenga",
+        price: 3715,
+        originalPrice: 5327,
+        image: "images/lehengas/30__FALAK_A3.jpeg",
+        description: "Elegant FALAK collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 121,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 116,
+        name: "FALAK Collection - Style 4",
+        category: "lehenga",
+        price: 5307,
+        originalPrice: 6931,
+        image: "images/lehengas/30__FALAK_A4.jpeg",
+        description: "Elegant FALAK collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 59,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 117,
+        name: "FIA Collection - Style 1",
+        category: "lehenga",
+        price: 5282,
+        originalPrice: 6707,
+        image: "images/lehengas/31__FIA_B1.jpeg",
+        description: "Elegant FIA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 83,
+        onSale: true,
+        savings: 29
+    },
+    {
+        id: 118,
+        name: "FIA Collection - Style 2",
+        category: "lehenga",
+        price: 5420,
+        originalPrice: 7328,
+        image: "images/lehengas/31__FIA_B2.jpeg",
+        description: "Elegant FIA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 135,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 119,
+        name: "FIA Collection - Style 3",
+        category: "lehenga",
+        price: 4428,
+        originalPrice: 6074,
+        image: "images/lehengas/31__FIA_B3.jpeg",
+        description: "Elegant FIA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 138,
+        onSale: true,
+        savings: 20
+    },
+    {
+        id: 120,
+        name: "FIA Collection - Style 4",
+        category: "lehenga",
+        price: 4430,
+        originalPrice: 5725,
+        image: "images/lehengas/31__FIA_B4.jpeg",
+        description: "Elegant FIA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.7,
+        reviews: 88,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 121,
+        name: "FATIMA Collection - Style 1",
+        category: "lehenga",
+        price: 3765,
+        originalPrice: 4824,
+        image: "images/lehengas/32__FATIMA_C1.jpeg",
+        description: "Elegant FATIMA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 173,
+        onSale: true,
+        savings: 22
+    },
+    {
+        id: 122,
+        name: "FATIMA Collection - Style 2",
+        category: "lehenga",
+        price: 4251,
+        originalPrice: 5787,
+        image: "images/lehengas/32__FATIMA_C2.jpeg",
+        description: "Elegant FATIMA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 5,
+        reviews: 141,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 123,
+        name: "FATIMA Collection - Style 3",
+        category: "lehenga",
+        price: 5438,
+        originalPrice: 7005,
+        image: "images/lehengas/32__FATIMA_C3.jpeg",
+        description: "Elegant FATIMA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.8,
+        reviews: 80,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 124,
+        name: "FATIMA Collection - Style 4",
+        category: "lehenga",
+        price: 4533,
+        originalPrice: 5648,
+        image: "images/lehengas/32__FATIMA_C4.jpeg",
+        description: "Elegant FATIMA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 86,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 125,
+        name: "FEMINA Collection - Style 1",
+        category: "lehenga",
+        price: 5131,
+        originalPrice: 6183,
+        image: "images/lehengas/33__FEMINA_D1.jpeg",
+        description: "Elegant FEMINA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 102,
+        onSale: true,
+        savings: 26
+    },
+    {
+        id: 126,
+        name: "FEMINA Collection - Style 2",
+        category: "lehenga",
+        price: 4124,
+        originalPrice: 5327,
+        image: "images/lehengas/33__FEMINA_D2.jpeg",
+        description: "Elegant FEMINA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 128,
+        onSale: true,
+        savings: 23
+    },
+    {
+        id: 127,
+        name: "FEMINA Collection - Style 3",
+        category: "lehenga",
+        price: 4497,
+        originalPrice: 5838,
+        image: "images/lehengas/33__FEMINA_D3.jpeg",
+        description: "Elegant FEMINA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.9,
+        reviews: 170,
+        onSale: true,
+        savings: 28
+    },
+    {
+        id: 128,
+        name: "FEMINA Collection - Style 4",
+        category: "lehenga",
+        price: 4149,
+        originalPrice: 5676,
+        image: "images/lehengas/33__FEMINA_D4.jpeg",
+        description: "Elegant FEMINA collection lehenga with intricate embroidery and traditional patterns, perfect for weddings and special occasions.",
+        specifications: {
+            gsm: "320-380",
+            material: "Silk Blend with Embroidery",
+            width: "44 inches",
+            colors: "Multi-color with Golden Work",
+            origin: "India"
+        },
+        supplier: "BABISHA Collections",
+        rating: 4.6,
+        reviews: 81,
+        onSale: true,
+        savings: 27
     }
 ];
+
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing app...');
     
-    // Add a simple test to verify JavaScript is working
-    const testElement = document.getElementById('fabricGrid');
-    if (testElement) {
-        console.log('Found fabricGrid element, adding loading message');
-        testElement.innerHTML = '<div class="col-12"><p class="text-center text-primary">🔄 Loading fabrics... JavaScript is working!</p></div>';
-    } else {
-        console.error('fabricGrid element not found!');
-    }
+    // Initialize immediately
+    initializeApp();
+    initializeInteractiveFeatures();
     
-    // Force display fabrics after a short delay
+    // Also try after a short delay as fallback
     setTimeout(function() {
-        console.log('Timeout triggered, forcing fabric display');
-        initializeApp();
-        initializeInteractiveFeatures();
-    }, 100);
+        console.log('Fallback initialization triggered');
+        const currentPage = getCurrentPage();
+        if (currentPage === 'products') {
+            if (fabricData && fabricData.length > 0 && (!filteredFabrics || filteredFabrics.length === 0)) {
+                filteredFabrics = [...fabricData];
+            }
+            displayFabrics();
+        }
+    }, 500);
 });
 
 // Initialize App Function
@@ -400,6 +2727,7 @@ function initializeApp() {
     filteredFabrics = [...fabricData];
     
     console.log('Fabric data loaded:', fabricData.length, 'fabrics');
+    console.log('Sample fabrics array length:', sampleFabrics.length);
     
     // Initialize page-specific functionality
     const currentPage = getCurrentPage();
@@ -431,6 +2759,12 @@ function getCurrentPage() {
 // Initialize Products Page
 function initializeProductsPage() {
     console.log('Setting up products page...');
+    
+    // Ensure filteredFabrics is initialized with all products
+    if (filteredFabrics.length === 0) {
+        filteredFabrics = [...fabricData];
+    }
+    
     initializeFilters();
     initializeSearch();
     initializeSorting();
@@ -439,9 +2773,11 @@ function initializeProductsPage() {
     // Handle URL parameters first
     handleURLParameters();
     
-    // Then display fabrics
+    // Then display fabrics (handleURLParameters will call displayFabrics, but this ensures it's called)
     console.log('About to display fabrics...');
-    displayFabrics();
+    if (filteredFabrics.length > 0) {
+        displayFabrics();
+    }
 }
 
 // Initialize Home Page
@@ -467,13 +2803,32 @@ function displayFabrics() {
         return;
     }
     
+    // Ensure we have products to display
+    if (!filteredFabrics || filteredFabrics.length === 0) {
+        console.warn('No filtered fabrics, using all fabric data');
+        if (fabricData && fabricData.length > 0) {
+            filteredFabrics = [...fabricData];
+        } else if (sampleFabrics && sampleFabrics.length > 0) {
+            fabricData = [...sampleFabrics];
+            filteredFabrics = [...fabricData];
+        } else {
+            console.error('No fabric data available!');
+            fabricGrid.innerHTML = '<div class="col-12"><p class="text-center text-danger">No products available. Please check the console for errors.</p></div>';
+            return;
+        }
+    }
+    
     console.log('Displaying fabrics:', filteredFabrics.length);
-    console.log('Men products:', filteredFabrics.filter(f => f.category === 'men').length);
     
     fabricGrid.innerHTML = '';
     
+    if (filteredFabrics.length === 0) {
+        fabricGrid.innerHTML = '<div class="col-12"><p class="text-center text-muted">No products found matching your criteria.</p></div>';
+        updateResultsCount();
+        return;
+    }
+    
     filteredFabrics.forEach(fabric => {
-        console.log('Creating card for:', fabric.name);
         const fabricCard = createFabricCard(fabric);
         fabricGrid.appendChild(fabricCard);
     });
@@ -486,7 +2841,7 @@ function displayFabrics() {
 // Create Fabric Card
 function createFabricCard(fabric) {
     const col = document.createElement('div');
-    col.className = 'col-lg-4 col-md-6 mb-4';
+    col.className = 'col-lg-4 col-md-6 mb-3';
     
     const savingsText = fabric.onSale ? 
         `<span class="badge bg-danger me-2">Save ${fabric.savings}%</span>` : '';
@@ -524,8 +2879,8 @@ function createFabricCard(fabric) {
                     <small class="text-muted ms-2">${fabric.reviews} reviews</small>
                 </div>
                 <div class="fabric-price">
-                    <span class="current-price h5 text-primary">₹${fabric.price.toLocaleString()}/meter</span>
-                    ${fabric.onSale ? `<span class="original-price text-muted text-decoration-line-through ms-2">₹${fabric.originalPrice.toLocaleString()}</span>` : ''}
+                    <span class="current-price h5 text-primary">â‚¹${fabric.price.toLocaleString()}/meter</span>
+                    ${fabric.onSale ? `<span class="original-price text-muted text-decoration-line-through ms-2">â‚¹${fabric.originalPrice.toLocaleString()}</span>` : ''}
                 </div>
                 <div class="fabric-supplier mt-2">
                     <small class="text-muted">Supplier: ${fabric.supplier}</small>
@@ -535,7 +2890,7 @@ function createFabricCard(fabric) {
                     <button class="btn btn-outline-secondary btn-sm me-2" onclick="viewFabricDetails(${fabric.id})">
                         <i class="fas fa-eye me-1"></i>View Details
                     </button>
-                    <button class="btn btn-primary btn-sm" onclick="window.open('https://wa.me/919624113555?text=Hi! I am interested in ordering this product:%0A%0A*${fabric.name}*%0APrice: ₹${fabric.price.toLocaleString()}/meter%0A${fabric.onSale ? `Original Price: ₹${fabric.originalPrice.toLocaleString()} (Save ${fabric.savings}%)%0A` : ''}Description: ${fabric.description}%0A%0ASpecifications:%0A- GSM: ${fabric.specifications.gsm}%0A- Material: ${fabric.specifications.material}%0A- Width: ${fabric.specifications.width}%0A- Colors: ${fabric.specifications.colors}%0A- Origin: ${fabric.specifications.origin}%0A%0ASupplier: ${fabric.supplier}%0A%0APlease let me know about availability and ordering process. Thank you!', '_blank')">
+                    <button class="btn btn-primary btn-sm" onclick="window.open('https://wa.me/919624113555?text=Hi! I am interested in ordering this product:%0A%0A*${fabric.name}*%0APrice: â‚¹${fabric.price.toLocaleString()}/meter%0A${fabric.onSale ? `Original Price: â‚¹${fabric.originalPrice.toLocaleString()} (Save ${fabric.savings}%)%0A` : ''}Description: ${fabric.description}%0A%0ASpecifications:%0A- GSM: ${fabric.specifications.gsm}%0A- Material: ${fabric.specifications.material}%0A- Width: ${fabric.specifications.width}%0A- Colors: ${fabric.specifications.colors}%0A- Origin: ${fabric.specifications.origin}%0A%0ASupplier: ${fabric.supplier}%0A%0APlease let me know about availability and ordering process. Thank you!', '_blank')">
                         <i class="fab fa-whatsapp me-1"></i>Order Now
                     </button>
                 </div>
@@ -750,8 +3105,21 @@ function goToPage(page) {
 // Update Results Count
 function updateResultsCount() {
     const resultsCount = document.getElementById('resultsCount');
+    const totalResults = document.getElementById('totalResults');
+    const showingRange = document.getElementById('showingRange');
+    
+    const count = filteredFabrics ? filteredFabrics.length : 0;
+    
     if (resultsCount) {
-        resultsCount.textContent = `${filteredFabrics.length} fabrics found`;
+        resultsCount.textContent = `${count} fabrics found`;
+    }
+    
+    if (totalResults) {
+        totalResults.textContent = count.toString();
+    }
+    
+    if (showingRange) {
+        showingRange.textContent = count > 0 ? `1-${count}` : '0-0';
     }
 }
 
@@ -759,6 +3127,16 @@ function updateResultsCount() {
 function handleURLParameters() {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');
+    const collection = urlParams.get('collection');
+    const occasion = urlParams.get('occasion');
+    const fabric = urlParams.get('fabric');
+    
+    // If no category parameter, show all products
+    if (!category && !collection && !occasion && !fabric) {
+        filteredFabrics = [...fabricData];
+        displayFabrics();
+        return;
+    }
     
     if (category) {
         // Check the appropriate checkbox
@@ -818,6 +3196,11 @@ function handleURLParameters() {
             return fabric.category === category;
         });
         displayFabrics();
+    } else if (collection || occasion || fabric) {
+        // For collection, occasion, or fabric parameters, show all products for now
+        // (since products don't have these properties yet)
+        filteredFabrics = [...fabricData];
+        displayFabrics();
     }
 }
 
@@ -834,17 +3217,17 @@ function initializeInteractiveFeatures() {
     
     // Add event listeners for Order Now buttons
     setTimeout(function() {
-        console.log('🔧 Setting up Order Now button listeners...');
+        console.log('ðŸ”§ Setting up Order Now button listeners...');
         const orderButtons = document.querySelectorAll('.order-now-btn');
-        console.log('🔍 Found', orderButtons.length, 'Order Now buttons');
+        console.log('ðŸ” Found', orderButtons.length, 'Order Now buttons');
         
         orderButtons.forEach(function(button, index) {
-            console.log(`🔘 Button ${index + 1}:`, button);
+            console.log(`ðŸ”˜ Button ${index + 1}:`, button);
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log('🖱️ Order Now button clicked via event listener!');
+                console.log('ðŸ–±ï¸ Order Now button clicked via event listener!');
                 const fabricId = this.getAttribute('data-fabric-id');
-                console.log('🆔 Fabric ID from data attribute:', fabricId);
+                console.log('ðŸ†” Fabric ID from data attribute:', fabricId);
                 orderNow(fabricId);
             });
         });
@@ -913,18 +3296,18 @@ function handleInquiry(e) {
 // WhatsApp Order Function
 // Order Now Function - WhatsApp Integration
 function orderNow(fabricId) {
-    console.log('🎯 Order Now clicked for fabric ID:', fabricId);
-    console.log('🔍 Current fabricData:', fabricData);
+    console.log('ðŸŽ¯ Order Now clicked for fabric ID:', fabricId);
+    console.log('ðŸ” Current fabricData:', fabricData);
     
     const fabric = fabricData.find(f => f.id === fabricId);
     if (fabric) {
-        console.log('✅ Found fabric:', fabric.name);
-        console.log('📱 Creating WhatsApp message...');
+        console.log('âœ… Found fabric:', fabric.name);
+        console.log('ðŸ“± Creating WhatsApp message...');
         const message = `Hi! I'm interested in ordering this fabric:
 
 *${fabric.name}*
-Price: ₹${fabric.price.toLocaleString()}/meter
-${fabric.onSale ? `Original Price: ₹${fabric.originalPrice.toLocaleString()} (Save ${fabric.savings}%)` : ''}
+Price: â‚¹${fabric.price.toLocaleString()}/meter
+${fabric.onSale ? `Original Price: â‚¹${fabric.originalPrice.toLocaleString()} (Save ${fabric.savings}%)` : ''}
 
 Description: ${fabric.description}
 
@@ -940,12 +3323,12 @@ Supplier: ${fabric.supplier}
 Please let me know about availability and ordering process. Thank you!`;
 
         const whatsappUrl = `https://wa.me/919624113555?text=${encodeURIComponent(message)}`;
-        console.log('🔗 WhatsApp URL created:', whatsappUrl);
+        console.log('ðŸ”— WhatsApp URL created:', whatsappUrl);
         window.open(whatsappUrl, '_blank');
-        console.log('✅ WhatsApp opened successfully!');
+        console.log('âœ… WhatsApp opened successfully!');
     } else {
-        console.error('❌ Fabric not found for ID:', fabricId);
-        console.log('🔍 Available fabric IDs:', fabricData.map(f => f.id));
+        console.error('âŒ Fabric not found for ID:', fabricId);
+        console.log('ðŸ” Available fabric IDs:', fabricData.map(f => f.id));
         alert('Sorry, there was an error finding this product. Please try again.');
     }
 }
@@ -1062,55 +3445,55 @@ setTimeout(function() {
 
 // Test function to verify buttons are working
 function testOrderNow() {
-    console.log('🧪 Testing Order Now function...');
+    console.log('ðŸ§ª Testing Order Now function...');
     if (fabricData.length > 0) {
-        console.log('🔍 Testing with first fabric:', fabricData[0]);
+        console.log('ðŸ” Testing with first fabric:', fabricData[0]);
         orderNow(fabricData[0].id);
     } else {
-        console.log('❌ No fabric data available for testing');
+        console.log('âŒ No fabric data available for testing');
     }
 }
 
 // Simple test function
 function testClick() {
-    console.log('🖱️ Test click function called!');
+    console.log('ðŸ–±ï¸ Test click function called!');
     alert('Test click is working!');
 }
 
 // Direct WhatsApp order function
 function orderNowDirect(fabricId) {
-    console.log('🎯 Order Now Direct clicked for fabric ID:', fabricId);
-    console.log('🔍 Current fabricData:', fabricData);
-    console.log('🔍 fabricData length:', fabricData ? fabricData.length : 'undefined');
+    console.log('ðŸŽ¯ Order Now Direct clicked for fabric ID:', fabricId);
+    console.log('ðŸ” Current fabricData:', fabricData);
+    console.log('ðŸ” fabricData length:', fabricData ? fabricData.length : 'undefined');
     
     const fabric = fabricData.find(f => f.id === fabricId);
-    console.log('🔍 Found fabric:', fabric);
+    console.log('ðŸ” Found fabric:', fabric);
     
     if (fabric) {
-        console.log('✅ Found fabric:', fabric.name);
-        const message = `Hi! I am interested in ordering ${fabric.name} - Price: ₹${fabric.price.toLocaleString()}/meter. Please tell me more about availability and ordering process.`;
-        console.log('📝 Message:', message);
+        console.log('âœ… Found fabric:', fabric.name);
+        const message = `Hi! I am interested in ordering ${fabric.name} - Price: â‚¹${fabric.price.toLocaleString()}/meter. Please tell me more about availability and ordering process.`;
+        console.log('ðŸ“ Message:', message);
         
         const whatsappUrl = `https://wa.me/919624113555?text=${encodeURIComponent(message)}`;
-        console.log('🔗 Opening WhatsApp:', whatsappUrl);
+        console.log('ðŸ”— Opening WhatsApp:', whatsappUrl);
         
         try {
             window.open(whatsappUrl, '_blank');
-            console.log('✅ WhatsApp window opened successfully!');
+            console.log('âœ… WhatsApp window opened successfully!');
         } catch (error) {
-            console.error('❌ Error opening WhatsApp:', error);
+            console.error('âŒ Error opening WhatsApp:', error);
             alert('Error opening WhatsApp. Please try again.');
         }
     } else {
-        console.error('❌ Fabric not found for ID:', fabricId);
-        console.log('🔍 Available fabric IDs:', fabricData ? fabricData.map(f => f.id) : 'No fabric data');
+        console.error('âŒ Fabric not found for ID:', fabricId);
+        console.log('ðŸ” Available fabric IDs:', fabricData ? fabricData.map(f => f.id) : 'No fabric data');
         alert('Sorry, there was an error finding this product. Please try again.');
     }
 }
 
 // Test WhatsApp function
 function testWhatsApp() {
-    console.log('📱 Testing WhatsApp directly...');
+    console.log('ðŸ“± Testing WhatsApp directly...');
     window.open('https://wa.me/919624113555?text=Hi! This is a test message from BABISHA website.', '_blank');
 }
 
@@ -1130,3 +3513,4 @@ window.openLoginModal = openLoginModal;
 
 window.openRegisterModal = openRegisterModal;
 window.openInquiryModal = openInquiryModal;
+
