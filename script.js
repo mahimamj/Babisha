@@ -3292,28 +3292,6 @@ function handleURLParameters() {
             if (allCheckbox) {
                 allCheckbox.checked = false;
             }
-        } else if (category === 'men') {
-            const menCheckbox = document.getElementById('cat-men');
-            if (menCheckbox) {
-                menCheckbox.checked = true;
-            }
-            // Uncheck "All Fabrics"
-            const allCheckbox = document.getElementById('cat-all');
-            if (allCheckbox) {
-                allCheckbox.checked = false;
-            }
-        } else if (category === 'sherwanis' || category === 'kurta-sets' || category === 'nehru-jackets' || category === 'indo-western') {
-            // These are men's subcategories, so check the men checkbox
-            const menCheckbox = document.getElementById('cat-men');
-            if (menCheckbox) {
-                menCheckbox.checked = true;
-            }
-            // Uncheck "All Fabrics"
-            const allCheckbox = document.getElementById('cat-all');
-            if (allCheckbox) {
-                allCheckbox.checked = false;
-            }
-        }
         
         // Filter by category - handle both 'lehenga' and 'lehengas'
         filteredFabrics = fabricData.filter(fabric => {
