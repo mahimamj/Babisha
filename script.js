@@ -3032,10 +3032,6 @@ function getSelectedCategories() {
             selected.push('lehenga');
         } else if (category === 'sarees') {
             selected.push('sarees');
-        } else if (category === 'men') {
-            selected.push('men');
-        } else if (category === 'sherwanis' || category === 'kurta-sets' || category === 'nehru-jackets' || category === 'indo-western') {
-            selected.push('men');
         } else if (category) {
             selected.push(category);
         }
@@ -3292,15 +3288,12 @@ function handleURLParameters() {
             if (allCheckbox) {
                 allCheckbox.checked = false;
             }
+        }
         
         // Filter by category - handle both 'lehenga' and 'lehengas'
         filteredFabrics = fabricData.filter(fabric => {
             // Handle both singular and plural forms
             if (category === 'lehengas' && fabric.category === 'lehenga') {
-                return true;
-            }
-            // Handle men's subcategories
-            if ((category === 'sherwanis' || category === 'kurta-sets' || category === 'nehru-jackets' || category === 'indo-western') && fabric.category === 'men') {
                 return true;
             }
             return fabric.category === category;
