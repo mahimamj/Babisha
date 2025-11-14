@@ -1983,175 +1983,237 @@ html {
     }
 }
 
-/* Mobile Product Cards */
+/* Mobile Product Cards - 2 Column Grid Layout */
 @media (max-width: 768px) {
     .product-card,
     .fabric-card {
-        margin-bottom: 1.25rem;
-        border-radius: 12px;
+        margin-bottom: 0.5rem;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-card:hover,
+    .fabric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     
     .product-image,
     .fabric-image {
-        height: 220px;
+        height: 180px;
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+        position: relative;
+    }
+    
+    .product-image img,
+    .fabric-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     
     .product-info,
     .fabric-info {
-        padding: 1rem;
+        padding: 0.75rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
     
     .product-title,
     .fabric-name {
-        font-size: 1rem;
+        font-size: 0.85rem;
         height: auto;
-        min-height: 2.4rem;
-        margin-bottom: 0.5rem;
+        min-height: 2.2rem;
+        margin-bottom: 0.375rem;
         line-height: 1.3;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .product-description,
     .fabric-description {
-        font-size: 0.8rem;
-        height: auto;
-        min-height: 2.2rem;
-        margin-bottom: 0.625rem;
-        line-height: 1.4;
+        display: none; /* Hide description on mobile for compact layout */
     }
     
     .product-specs,
     .fabric-specs {
-        font-size: 0.75rem;
-        margin-bottom: 0.625rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+        color: #666;
     }
     
     .spec-item {
-        margin-bottom: 0.2rem;
-        padding: 0.2rem 0;
+        margin-bottom: 0.15rem;
+        padding: 0;
     }
     
     .product-pricing {
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
     }
     
     .product-price,
+    .fabric-price {
+        margin-bottom: 0.25rem;
+    }
+    
+    .product-price .current-price,
     .fabric-price .current-price {
-        font-size: 1.1rem;
-        margin-bottom: 0.2rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 0;
     }
     
     .original-price {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        margin-left: 0.25rem;
+    }
+    
+    .fabric-image .badge.bg-danger,
+    .product-image .badge.bg-danger {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        padding: 3px 6px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        z-index: 2;
+        border-radius: 4px;
     }
     
     .savings {
-        font-size: 0.75rem;
-        padding: 1px 5px;
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        padding: 3px 6px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        z-index: 2;
     }
     
     .price-per-unit {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        display: none; /* Hide on mobile for space */
     }
     
     .product-rating,
     .fabric-rating {
-        font-size: 0.8rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.375rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+    
+    .product-rating .stars,
+    .fabric-rating .stars {
+        font-size: 0.7rem;
     }
     
     .product-actions,
     .fabric-actions {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 0.75rem;
+        gap: 0.375rem;
+        margin-top: auto;
+        padding-top: 0.5rem;
     }
     
     .product-actions .btn,
     .fabric-actions .btn {
         width: 100%;
-        padding: 0.625rem 1rem;
-        font-size: 0.875rem;
-        border-radius: 6px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+        border-radius: 4px;
         margin: 0 !important;
-    }
-    
-    .sale-banner,
-    .badge.bg-danger {
-        top: 8px;
-        right: 8px;
-        padding: 3px 6px;
-        font-size: 0.7rem;
+        white-space: nowrap;
     }
     
     .fabric-supplier {
-        font-size: 0.75rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.65rem;
+        margin-bottom: 0.375rem;
+        color: #999;
+        display: none; /* Hide supplier on mobile for compact layout */
+    }
+    
+    /* Hide overlay on mobile */
+    .product-overlay,
+    .fabric-overlay {
+        display: none;
     }
 }
 
-/* Mobile Product Cards - Extra Small */
+/* Mobile Product Cards - Extra Small (Still 2 columns) */
 @media (max-width: 576px) {
+    .products-container .col-lg-4,
+    .products-container .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0 0.25rem;
+    }
+    
     .product-card,
     .fabric-card {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 6px;
     }
     
     .product-image,
     .fabric-image {
-        height: 200px;
+        height: 160px;
     }
     
     .product-info,
     .fabric-info {
-        padding: 0.875rem;
+        padding: 0.625rem;
     }
     
     .product-title,
     .fabric-name {
-        font-size: 0.95rem;
-        min-height: 2.2rem;
-    }
-    
-    .product-description,
-    .fabric-description {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         min-height: 2rem;
-        -webkit-line-clamp: 2;
+        line-height: 1.25;
     }
     
     .product-specs,
     .fabric-specs {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        margin-bottom: 0.375rem;
     }
     
-    .product-price,
+    .product-price .current-price,
     .fabric-price .current-price {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .product-rating,
+    .fabric-rating {
+        font-size: 0.65rem;
     }
     
     .product-actions .btn,
     .fabric-actions .btn {
-        padding: 0.5rem 0.875rem;
-        font-size: 0.8rem;
+        padding: 0.45rem 0.625rem;
+        font-size: 0.7rem;
+    }
+    
+    .savings,
+    .badge.bg-danger {
+        font-size: 0.6rem;
+        padding: 2px 4px;
     }
 }
 
-/* Mobile Products Container */
-@media (max-width: 768px) {
-    .products-container {
-        width: 100%;
-    }
-    
-    .products-container .row {
-        margin: 0;
-    }
-    
-    .products-container .col-lg-4,
-    .products-container .col-md-6 {
-        padding: 0 0.5rem;
-    }
-}
 
 /* Mobile Pagination */
 @media (max-width: 768px) {

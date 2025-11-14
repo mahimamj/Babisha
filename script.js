@@ -2877,7 +2877,7 @@ function displayFabrics() {
 // Create Fabric Card
 function createFabricCard(fabric) {
     const col = document.createElement('div');
-    col.className = 'col-lg-4 col-md-6 mb-3';
+    col.className = 'col-lg-4 col-md-6';
     
     const savingsText = fabric.onSale ? 
         `<span class="badge bg-danger me-2">Save ${fabric.savings}%</span>` : '';
